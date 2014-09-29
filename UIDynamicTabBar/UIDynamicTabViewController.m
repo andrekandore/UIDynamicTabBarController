@@ -9,15 +9,32 @@
 #import "UIDynamicTabViewController.h"
 #import "UIDynamicMoreViewController.h"
 #import "UIDynamicTabBarItem.h"
+#import <objc/NSObjCRuntime.h>
+#import "tgmath.h"
 
 @interface UIDynamicTabViewController ()
 @end
 
 @implementation UIDynamicTabViewController
 
--(NSUInteger)maxNumberOfVisibleViewControllers {
-    NSUInteger maxNumberOfViewControllers = 8;
+-(NSUInteger)widthOfSingleTab {
+    NSUInteger widthOfSingleTab = 48;
+    return widthOfSingleTab;
+}
+
+-(NSUInteger)maxNumberOfVisibleViewControllersForBoundsSize:(CGSize)boundsSize {
+    NSUInteger widthOfSingleTab = self.widthOfSingleTab;
+    
+    if (CGSizeEqualToSize(CGSizeZero, boundsSize)) {
+        boundsSize = self.view.bounds.size;
+    }
+    
+    NSUInteger maxNumberOfViewControllers = ABS((NSUInteger)floor(boundsSize.width/widthOfSingleTab));
     return maxNumberOfViewControllers;
+}
+
+-(NSUInteger)maxNumberOfVisibleViewControllers {
+    return [self maxNumberOfVisibleViewControllersForBoundsSize:CGSizeZero];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -26,7 +43,7 @@
     UITabBar *tabBar = self.viewedTabBar;
     if (nil != tabBar && ![self.view.subviews containsObject:self.viewedTabBar]) {
         [self ensureMoreNavigationControllerAndDefaultTabBarIsHidden];
-        [self updateDisplayableViewControllers:NO];
+        [self updateDisplayableViewControllers:NO withFrameSize:CGSizeZero];
         [self updateLayoutOfTabBar:tabBar];
         [self.view addSubview:tabBar];
     }
@@ -37,7 +54,7 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self ensureMoreNavigationControllerAndDefaultTabBarIsHidden];
-    [self updateDisplayableViewControllers:NO];
+    [self updateDisplayableViewControllers:NO withFrameSize:CGSizeZero];
     [self.view setNeedsUpdateConstraints];
     [self.view layoutIfNeeded];
 }
@@ -46,7 +63,7 @@
     [super viewDidLayoutSubviews];
     [self updateLayoutOfTabBar:self.viewedTabBar];
     [self ensureMoreNavigationControllerAndDefaultTabBarIsHidden];
-    [self updateDisplayableViewControllers:NO];
+    [self updateDisplayableViewControllers:NO withFrameSize:CGSizeZero];
 }
 
 - (void)updateLayoutOfTabBar:(UITabBar *)viewedTabBar {
@@ -75,7 +92,7 @@
     [super setViewControllers:viewControllers animated:animated];
     [self.viewedTabBar setItems:[viewControllers valueForKey:@"tabBarItem"] animated:animated];
     [self ensureMoreNavigationControllerAndDefaultTabBarIsHidden];
-    [self updateDisplayableViewControllers:NO];
+    [self updateDisplayableViewControllers:NO withFrameSize:CGSizeZero];
 }
 
 - (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
@@ -83,31 +100,34 @@
         [self setSelectedViewController:self.viewControllers[[tabBar.items indexOfObject:item]]];
         [self.viewedTabBar setItems:[self.viewControllers valueForKey:@"tabBarItem"] animated:NO];
         [self ensureMoreNavigationControllerAndDefaultTabBarIsHidden];
-        [self updateDisplayableViewControllers:NO];
+        [self updateDisplayableViewControllers:NO withFrameSize:CGSizeZero];
     }
 }
 
 - (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
     [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
-    [self updateDisplayableViewControllers:YES];
+    [self ensureMoreNavigationControllerAndDefaultTabBarIsHidden];
+    [self updateDisplayableViewControllers:YES withFrameSize:size];
 }
 
 
-//- (void)willTransitionToTraitCollection:(UITraitCollection *)newCollection withTransitionCoordinator:(id <UIViewControllerTransitionCoordinator>)coordinator {
-//    [super willTransitionToTraitCollection:newCollection withTransitionCoordinator:coordinator];
-//    [self updateDisplayableViewControllers];
-//}
+- (void)willTransitionToTraitCollection:(UITraitCollection *)newCollection withTransitionCoordinator:(id <UIViewControllerTransitionCoordinator>)coordinator {
+    [super willTransitionToTraitCollection:newCollection withTransitionCoordinator:coordinator];
+    [self ensureMoreNavigationControllerAndDefaultTabBarIsHidden];
+    [self updateDisplayableViewControllers:YES withFrameSize:CGSizeZero];
+}
 
 - (void)willAnimateSecondHalfOfRotationFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation duration:(NSTimeInterval)duration {
     [super willAnimateSecondHalfOfRotationFromInterfaceOrientation:fromInterfaceOrientation duration:duration];
     if (!UITraitCollection.class) {
-        [self updateDisplayableViewControllers:YES];
+        [self ensureMoreNavigationControllerAndDefaultTabBarIsHidden];
+        [self updateDisplayableViewControllers:YES withFrameSize:CGSizeZero];
     }
 }
 
-- (void)updateDisplayableViewControllers:(BOOL)animated {
+- (void)updateDisplayableViewControllers:(BOOL)animated withFrameSize:(CGSize)size {
 
-    NSArray *displayableViewControllers = self.displayableViewControllers;
+    NSArray *displayableViewControllers = [self displayableViewControllersForBoundsSize:size];
     if (nil != displayableViewControllers) {
 
         UITabBar *tabBar = self.viewedTabBar;
@@ -119,9 +139,13 @@
 }
 
 - (NSArray *)displayableViewControllers {
+    return [self displayableViewControllersForBoundsSize:CGSizeZero];
+}
+
+- (NSArray *)displayableViewControllersForBoundsSize:(CGSize)boundsSize {
     NSArray *displayableViewControllers = nil;
     
-    NSUInteger maximumNumberOfViewControllersDisplayable = self.maxNumberOfVisibleViewControllers;
+    NSUInteger maximumNumberOfViewControllersDisplayable = [self maxNumberOfVisibleViewControllersForBoundsSize:boundsSize];
     if (maximumNumberOfViewControllersDisplayable > 0) {
         
         NSArray *viewControllers = self.viewControllers;
@@ -131,6 +155,8 @@
             if (nil != moreViewController) {
                 displayableViewControllers = [displayableViewControllers arrayByAddingObject:moreViewController];
             }
+        } else {
+            displayableViewControllers = viewControllers;
         }
     }
     

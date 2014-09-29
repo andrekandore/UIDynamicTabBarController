@@ -12,5 +12,6 @@
 @property (readonly) NSUInteger maxNumberOfVisibleViewControllers;
 @property (readonly) NSArray *displayableViewControllers;
 @property (readonly) NSArray *overflowedViewControllers;
+@property (readonly) NSUInteger widthOfSingleTab;
 @property IBOutlet UITabBar *viewedTabBar;
 @end
