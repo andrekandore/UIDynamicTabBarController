@@ -79,7 +79,13 @@
                             <constraint firstAttribute="centerX" secondItem="lSf-df-YfC" secondAttribute="centerX" constant="-0.5" id="xVF-FR-1XZ"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" selectedImage="Default.png" systemItem="favorites" id="nqX-Vc-pOI"/>
+                    <tabBarItem key="tabBarItem" selectedImage="Default.png" systemItem="favorites" id="nqX-Vc-pOI">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="dynamicItemType">
+                                <integer key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C58-UQ-oXh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -118,7 +124,13 @@
                             <constraint firstItem="F4R-tv-p81" firstAttribute="top" secondItem="MPW-At-CJk" secondAttribute="bottom" constant="8" id="jeE-VI-NMK"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="recents" id="3kW-iJ-GGZ"/>
+                    <tabBarItem key="tabBarItem" systemItem="recents" id="3kW-iJ-GGZ">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="dynamicItemType">
+                                <integer key="value" value="4"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qca-xN-lRQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -190,7 +202,13 @@
                             <constraint firstAttribute="centerX" secondItem="S38-mW-kHq" secondAttribute="centerX" constant="-0.5" id="dU6-AJ-ohh"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="contacts" id="ySA-fO-AnY"/>
+                    <tabBarItem key="tabBarItem" systemItem="contacts" id="ySA-fO-AnY">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="dynamicItemType">
+                                <integer key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1TQ-1k-3qW" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -201,58 +219,27 @@
         <scene sceneID="aec-MO-hth">
             <objects>
                 <tableViewController id="0OV-mE-2UF" customClass="UIDynamicMoreViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="pmJ-2L-h82">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="pmJ-2L-h82">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <sections>
-                            <tableViewSection id="Phm-TZ-nqt">
-                                <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="OR7-9n-1bD" style="IBUITableViewCellStyleDefault" id="wwm-dS-con">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wwm-dS-con" id="Uk1-8x-yJB">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OR7-9n-1bD">
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="fiS-yr-Y8D" style="IBUITableViewCellStyleDefault" id="NaU-bC-uQW">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NaU-bC-uQW" id="w4t-QM-rDa">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fiS-yr-Y8D">
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="uAw-rc-nxu" style="IBUITableViewCellStyleDefault" id="LdJ-5l-NEQ">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LdJ-5l-NEQ" id="Bti-v5-TE9">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="uAw-rc-nxu">
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                        </sections>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MoreViewControllerTableViewCell" textLabel="OR7-9n-1bD" rowHeight="44" style="IBUITableViewCellStyleDefault" id="wwm-dS-con">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wwm-dS-con" id="Uk1-8x-yJB">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OR7-9n-1bD">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
                         <connections>
                             <outlet property="dataSource" destination="0OV-mE-2UF" id="hys-Mm-kmP"/>
                             <outlet property="delegate" destination="0OV-mE-2UF" id="2Q6-BO-G9b"/>
@@ -274,7 +261,6 @@
         <scene sceneID="lD2-qM-qkz">
             <objects>
                 <navigationController id="CnZ-hG-28z" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="more" id="5ly-nd-trQ"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="DPl-NB-nNt">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -360,7 +346,13 @@
                             <constraint firstItem="rMH-3z-a0U" firstAttribute="top" secondItem="66e-gC-SNm" secondAttribute="bottom" constant="14" id="sPh-Iy-K2L"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="bookmarks" id="lhn-uR-iTc"/>
+                    <tabBarItem key="tabBarItem" systemItem="bookmarks" id="lhn-uR-iTc">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="dynamicItemType">
+                                <integer key="value" value="7"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mqH-BL-Fgb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -405,7 +397,13 @@
                             <constraint firstItem="PKm-pv-jcH" firstAttribute="top" secondItem="ZyJ-xE-TAS" secondAttribute="bottom" constant="20" id="vDe-aQ-yqu"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="search" id="UZw-RQ-DiO"/>
+                    <tabBarItem key="tabBarItem" systemItem="search" id="UZw-RQ-DiO">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="dynamicItemType">
+                                <integer key="value" value="8"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2FS-47-rKq" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -468,7 +466,13 @@
                             <constraint firstAttribute="centerX" secondItem="kL1-8j-ruF" secondAttribute="centerX" constant="-0.5" id="zrS-GK-tJO"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="downloads" id="7Yh-Z7-tHI"/>
+                    <tabBarItem key="tabBarItem" systemItem="downloads" id="7Yh-Z7-tHI">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="dynamicItemType">
+                                <integer key="value" value="9"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r6v-UC-vsp" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -528,7 +532,13 @@
                             <constraint firstAttribute="centerY" secondItem="ee7-sV-5H4" secondAttribute="centerY" constant="1.5" id="wtC-9w-XcH"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="mostViewed" id="mVk-Fm-iHQ"/>
+                    <tabBarItem key="tabBarItem" systemItem="mostViewed" id="mVk-Fm-iHQ">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="dynamicItemType">
+                                <integer key="value" value="11"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7up-hr-gjx" userLabel="First Responder" sceneMemberID="firstResponder"/>

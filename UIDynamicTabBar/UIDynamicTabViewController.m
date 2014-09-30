@@ -96,11 +96,18 @@
 }
 
 - (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
+  
     if ([tabBar isEqual:self.viewedTabBar]) {
-        [self setSelectedViewController:self.viewControllers[[tabBar.items indexOfObject:item]]];
-        [self.viewedTabBar setItems:[self.viewControllers valueForKey:@"tabBarItem"] animated:NO];
-        [self ensureMoreNavigationControllerAndDefaultTabBarIsHidden];
-        [self updateDisplayableViewControllers:NO withFrameSize:CGSizeZero];
+
+        NSArray *viewControllers = [self displayableViewControllersForBoundsSize:CGSizeZero];
+        if (nil != viewControllers) {
+    
+            if (viewControllers.count > 0) {
+                [self setSelectedViewController:viewControllers[[tabBar.items indexOfObject:item]]];
+                [self ensureMoreNavigationControllerAndDefaultTabBarIsHidden];
+                [self updateDisplayableViewControllers:NO withFrameSize:CGSizeZero];
+            }
+        }
     }
 }
 
@@ -163,6 +170,26 @@
     return displayableViewControllers;
 }
 
+- (NSArray *)overflowedViewControllers {
+    NSArray *overflowedViewControllers = nil;
+    
+    NSArray *displayableViewControllers = [self displayableViewControllersForBoundsSize:CGSizeZero];
+    if (displayableViewControllers.count > 0) {
+      
+        UIViewController *moreViewController = self.moreViewController;
+        if (nil != moreViewController) {
+            if ([displayableViewControllers containsObject:moreViewController]) {
+                NSMutableArray *displayableArrayControllersMinusMoreViewController = [NSMutableArray arrayWithArray:displayableViewControllers];
+                [displayableArrayControllersMinusMoreViewController removeObject:moreViewController];
+                overflowedViewControllers = [NSArray arrayWithArray:displayableArrayControllersMinusMoreViewController];
+            }
+        }
+    }
+    
+    return overflowedViewControllers;
+}
+
+
 - (UIViewController *)moreViewController {
 
     UIViewController *moreViewController = nil;
@@ -178,5 +205,22 @@
     
     return moreViewController;
 }
+
+//- (UIDynamicMoreViewController *)dynamicMoreViewController {
+//    UIViewController *childViewController = nil;
+//    UIViewController *viewController = self;
+//    
+//    while ((childViewController = viewController.parentViewController)) {
+//        
+//        if ([childViewController isKindOfClass:UIDynamicTabViewController.class]) {
+//            return (UIDynamicTabViewController *)childViewController;
+//        } else {
+//            viewController = childViewController;
+//        }
+//    }
+//    
+//    return nil;
+//}
+
 
 @end

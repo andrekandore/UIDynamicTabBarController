@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+@class UIDynamicTabViewController;
+
 @interface UIDynamicMoreViewController : UITableViewController
+@property (readonly) UIDynamicTabViewController *parentTabBarController;
 - (IBAction)editTabBar:(id)sender;
 @end
