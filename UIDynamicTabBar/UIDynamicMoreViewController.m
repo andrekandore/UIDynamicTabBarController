@@ -15,8 +15,12 @@
 #pragma mark - Editing
 - (IBAction)editTabBar:(id)sender {
     UITabBar *tabBar = nil;
-        if ((tabBar = self.parentTabBarController.viewedTabBar)) {
-        [tabBar beginCustomizingItems:tabBar.items];
+    
+    UIDynamicTabViewController *parentTabBarController = self.parentTabBarController;
+    if (nil != parentTabBarController) {
+        if ((tabBar = parentTabBarController.viewedTabBar)) {
+            [tabBar beginCustomizingItems:parentTabBarController.allTabBarItems];
+        }
     }
 }
 
@@ -82,7 +86,7 @@
     
     UIDynamicTabViewController *parentTabViewController = self.parentTabBarController;
     if (nil != parentTabViewController) {
-
+        
         NSArray *viewableViewControllers = parentTabViewController.overflowedViewControllers;
         if (viewableViewControllers.count > indexPath.row) {
             
