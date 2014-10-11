@@ -12,6 +12,8 @@
 #import <objc/NSObjCRuntime.h>
 #import "tgmath.h"
 
+NSString *TabBarItemAccessorKey = @"tabBarItem";
+
 @interface UIDynamicTabViewController ()
 @end
 
@@ -48,7 +50,7 @@
         [self.view addSubview:tabBar];
     }
     
-    [tabBar setItems:[self.viewControllers valueForKey:@"tabBarItem"] animated:animated];
+    [tabBar setItems:self.displayableTabBarItems animated:animated];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -90,7 +92,7 @@
 
 - (void)setViewControllers:(NSArray *)viewControllers animated:(BOOL)animated {
     [super setViewControllers:viewControllers animated:animated];
-    [self.viewedTabBar setItems:[viewControllers valueForKey:@"tabBarItem"] animated:animated];
+    [self.viewedTabBar setItems:[viewControllers valueForKey:TabBarItemAccessorKey] animated:animated];
     [self ensureMoreNavigationControllerAndDefaultTabBarIsHidden];
     [self updateDisplayableViewControllers:NO withFrameSize:CGSizeZero];
 }
@@ -139,10 +141,17 @@
 
         UITabBar *tabBar = self.viewedTabBar;
         if (nil != tabBar) {
-            NSArray *topTabBarItems = [displayableViewControllers valueForKey:@"tabBarItem"];
-            [tabBar setItems:topTabBarItems animated:animated];
+            [tabBar setItems:self.displayableTabBarItems animated:animated];
         }
     }
+}
+
+- (NSArray *)allTabBarItems {
+    return [self.viewControllers valueForKey:TabBarItemAccessorKey];
+}
+
+- (NSArray *)displayableTabBarItems {
+    return [self.displayableViewControllers valueForKey:TabBarItemAccessorKey];
 }
 
 - (NSArray *)displayableViewControllers {
@@ -163,7 +172,14 @@
                 displayableViewControllers = [displayableViewControllers arrayByAddingObject:moreViewController];
             }
         } else {
-            displayableViewControllers = viewControllers;
+            UIViewController *moreViewController = self.moreViewController;
+            if (nil != moreViewController && [viewControllers containsObject:moreViewController]) {
+                NSMutableArray *allControllersButMoreController = viewControllers.mutableCopy;
+                [allControllersButMoreController removeObject:moreViewController];
+                displayableViewControllers = [NSArray arrayWithArray:allControllersButMoreController];
+            } else {
+                displayableViewControllers = viewControllers;
+            }
         }
     }
     
@@ -179,9 +195,16 @@
         UIViewController *moreViewController = self.moreViewController;
         if (nil != moreViewController) {
             if ([displayableViewControllers containsObject:moreViewController]) {
-                NSMutableArray *displayableArrayControllersMinusMoreViewController = [NSMutableArray arrayWithArray:displayableViewControllers];
-                [displayableArrayControllersMinusMoreViewController removeObject:moreViewController];
-                overflowedViewControllers = [NSArray arrayWithArray:displayableArrayControllersMinusMoreViewController];
+                
+                NSMutableArray *allViewControllers = self.viewControllers.mutableCopy;
+                if (allViewControllers.count > 0) {
+                    
+                    NSMutableArray *displayableArrayControllersMinusMoreViewController = [NSMutableArray arrayWithArray:displayableViewControllers];
+                    [displayableArrayControllersMinusMoreViewController removeObject:moreViewController];
+                    
+                    [allViewControllers removeObjectsInArray:displayableViewControllers];
+                    overflowedViewControllers = [NSArray arrayWithArray:allViewControllers];
+                }
             }
         }
     }
