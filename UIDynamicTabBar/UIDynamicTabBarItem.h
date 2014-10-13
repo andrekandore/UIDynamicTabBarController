@@ -26,4 +26,5 @@ typedef NS_ENUM(NSInteger, UIDynamicTabBarSystemItem) {
 @interface UITabBarItem (UIDynamicTabBarItem)
 + (NSString *)titleForDynamicTabBarSystemItem:(UIDynamicTabBarSystemItem)dynamicTabBarSystemItem;
 @property (readonly) UIDynamicTabBarSystemItem dynamicItemType;
+@property (readonly) NSString *dynamicTitle;
 @end

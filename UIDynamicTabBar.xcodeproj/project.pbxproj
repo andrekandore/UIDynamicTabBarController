@@ -33,6 +33,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B327B4E419EC115B00579C64 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		B32ABDD519D87507002F3938 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B32ABDD619D87507002F3938 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		B355B60E19D873DA00E540AD /* UIDynamicTabBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UIDynamicTabBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,6 +111,7 @@
 		B355B61119D873DA00E540AD /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B327B4E419EC115B00579C64 /* README.md */,
 				B355B61219D873DA00E540AD /* Info.plist */,
 				B355B61319D873DA00E540AD /* main.m */,
 			);

@@ -12,6 +12,16 @@
 
 @implementation UIDynamicMoreViewController
 
+#pragma mark - Refreshing
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self reloadAnimated:NO];
+}
+
+- (void)reloadAnimated:(BOOL)animated {
+    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:animated ? UITableViewRowAnimationFade : UITableViewRowAnimationNone];
+}
+
 #pragma mark - Editing
 - (IBAction)editTabBar:(id)sender {
     UITabBar *tabBar = nil;
@@ -19,7 +29,7 @@
     UIDynamicTabViewController *parentTabBarController = self.parentTabBarController;
     if (nil != parentTabBarController) {
         if ((tabBar = parentTabBarController.viewedTabBar)) {
-            [tabBar beginCustomizingItems:parentTabBarController.allTabBarItems];
+            [tabBar beginCustomizingItems:parentTabBarController.customizableTabBarItems];
         }
     }
 }
@@ -55,7 +65,7 @@
             moreViewControllerTableViewCell.textLabel.text = overflowedViewController.tabBarItem.title;
             if (nil == moreViewControllerTableViewCell.textLabel.text) {
                 if (0 != overflowedViewController.tabBarItem.dynamicItemType) {
-                    moreViewControllerTableViewCell.textLabel.text = [UITabBarItem titleForDynamicTabBarSystemItem:overflowedViewController.tabBarItem.dynamicItemType];
+                    moreViewControllerTableViewCell.textLabel.text = overflowedViewController.tabBarItem.dynamicTitle;
                 }
             }
             

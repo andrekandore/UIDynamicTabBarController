@@ -83,4 +83,8 @@ const void *systemItemKey = @"__item=x_Type";
     objc_setAssociatedObject(self, systemItemKey, @(dynamicItemType), OBJC_ASSOCIATION_RETAIN);
 }
 
+- (NSString *)dynamicTitle {
+    return [UITabBarItem titleForDynamicTabBarSystemItem:self.dynamicItemType];
+}
+
 @end

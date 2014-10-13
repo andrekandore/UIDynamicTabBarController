@@ -12,5 +12,6 @@
 
 @interface UIDynamicMoreViewController : UITableViewController
 @property (readonly) UIDynamicTabViewController *parentTabBarController;
+- (void)reloadAnimated:(BOOL)animated;
 - (IBAction)editTabBar:(id)sender;
 @end
