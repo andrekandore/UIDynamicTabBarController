@@ -7,19 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B32ABDD719D87507002F3938 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B32ABDD619D87507002F3938 /* AppDelegate.m */; };
-		B32ABDD819D87507002F3938 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B32ABDD619D87507002F3938 /* AppDelegate.m */; };
-		B355B61419D873DA00E540AD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B355B61319D873DA00E540AD /* main.m */; };
-		B355B62019D873DB00E540AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B355B61E19D873DB00E540AD /* Main.storyboard */; };
+		B34F07361B79FF51009D67F6 /* TraitOverrideController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34F07331B79FF51009D67F6 /* TraitOverrideController.swift */; };
+		B34F07391B79FF6B009D67F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34F07381B79FF6B009D67F6 /* AppDelegate.swift */; };
+		B34F073B1B7A00AB009D67F6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B34F073A1B7A00AB009D67F6 /* Main.storyboard */; };
 		B355B62219D873DB00E540AD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B355B62119D873DB00E540AD /* Images.xcassets */; };
 		B355B62519D873DB00E540AD /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B355B62319D873DB00E540AD /* LaunchScreen.xib */; };
 		B355B63119D873DB00E540AD /* UIDynamicTabBarTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B355B63019D873DB00E540AD /* UIDynamicTabBarTests.m */; };
-		B355B64019D873FE00E540AD /* UIDynamicTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B355B63B19D873FE00E540AD /* UIDynamicTabViewController.m */; };
-		B355B64119D873FE00E540AD /* UIDynamicTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B355B63B19D873FE00E540AD /* UIDynamicTabViewController.m */; };
-		B355B64219D873FE00E540AD /* UIDynamicMoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B355B63D19D873FE00E540AD /* UIDynamicMoreViewController.m */; };
-		B355B64319D873FE00E540AD /* UIDynamicMoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B355B63D19D873FE00E540AD /* UIDynamicMoreViewController.m */; };
-		B355B64419D873FE00E540AD /* UIDynamicTabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B355B63F19D873FE00E540AD /* UIDynamicTabBarItem.m */; };
-		B355B64519D873FE00E540AD /* UIDynamicTabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B355B63F19D873FE00E540AD /* UIDynamicTabBarItem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,23 +27,16 @@
 
 /* Begin PBXFileReference section */
 		B327B4E419EC115B00579C64 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		B32ABDD519D87507002F3938 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		B32ABDD619D87507002F3938 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		B34F07331B79FF51009D67F6 /* TraitOverrideController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TraitOverrideController.swift; sourceTree = "<group>"; };
+		B34F07381B79FF6B009D67F6 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B34F073A1B7A00AB009D67F6 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		B355B60E19D873DA00E540AD /* UIDynamicTabBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UIDynamicTabBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B355B61219D873DA00E540AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B355B61319D873DA00E540AD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		B355B61F19D873DB00E540AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B355B62119D873DB00E540AD /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B355B62419D873DB00E540AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		B355B62A19D873DB00E540AD /* UIDynamicTabBarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UIDynamicTabBarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B355B62F19D873DB00E540AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B355B63019D873DB00E540AD /* UIDynamicTabBarTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UIDynamicTabBarTests.m; sourceTree = "<group>"; };
-		B355B63A19D873FE00E540AD /* UIDynamicTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIDynamicTabViewController.h; sourceTree = "<group>"; };
-		B355B63B19D873FE00E540AD /* UIDynamicTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIDynamicTabViewController.m; sourceTree = "<group>"; };
-		B355B63C19D873FE00E540AD /* UIDynamicMoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIDynamicMoreViewController.h; sourceTree = "<group>"; };
-		B355B63D19D873FE00E540AD /* UIDynamicMoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIDynamicMoreViewController.m; sourceTree = "<group>"; };
-		B355B63E19D873FE00E540AD /* UIDynamicTabBarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIDynamicTabBarItem.h; sourceTree = "<group>"; };
-		B355B63F19D873FE00E540AD /* UIDynamicTabBarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIDynamicTabBarItem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,17 +78,11 @@
 		B355B61019D873DA00E540AD /* UIDynamicTabBar */ = {
 			isa = PBXGroup;
 			children = (
-				B355B63A19D873FE00E540AD /* UIDynamicTabViewController.h */,
-				B355B63B19D873FE00E540AD /* UIDynamicTabViewController.m */,
-				B355B63C19D873FE00E540AD /* UIDynamicMoreViewController.h */,
-				B355B63D19D873FE00E540AD /* UIDynamicMoreViewController.m */,
-				B355B63E19D873FE00E540AD /* UIDynamicTabBarItem.h */,
-				B355B63F19D873FE00E540AD /* UIDynamicTabBarItem.m */,
-				B32ABDD519D87507002F3938 /* AppDelegate.h */,
-				B32ABDD619D87507002F3938 /* AppDelegate.m */,
-				B355B61E19D873DB00E540AD /* Main.storyboard */,
+				B34F07381B79FF6B009D67F6 /* AppDelegate.swift */,
+				B34F07331B79FF51009D67F6 /* TraitOverrideController.swift */,
 				B355B62119D873DB00E540AD /* Images.xcassets */,
 				B355B62319D873DB00E540AD /* LaunchScreen.xib */,
+				B34F073A1B7A00AB009D67F6 /* Main.storyboard */,
 				B355B61119D873DA00E540AD /* Supporting Files */,
 			);
 			path = UIDynamicTabBar;
@@ -113,7 +93,6 @@
 			children = (
 				B327B4E419EC115B00579C64 /* README.md */,
 				B355B61219D873DA00E540AD /* Info.plist */,
-				B355B61319D873DA00E540AD /* main.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -179,6 +158,7 @@
 		B355B60619D873DA00E540AD /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = "アンドレ";
 				TargetAttributes = {
@@ -215,7 +195,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B355B62019D873DB00E540AD /* Main.storyboard in Resources */,
+				B34F073B1B7A00AB009D67F6 /* Main.storyboard in Resources */,
 				B355B62519D873DB00E540AD /* LaunchScreen.xib in Resources */,
 				B355B62219D873DB00E540AD /* Images.xcassets in Resources */,
 			);
@@ -235,11 +215,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B355B61419D873DA00E540AD /* main.m in Sources */,
-				B355B64019D873FE00E540AD /* UIDynamicTabViewController.m in Sources */,
-				B355B64419D873FE00E540AD /* UIDynamicTabBarItem.m in Sources */,
-				B355B64219D873FE00E540AD /* UIDynamicMoreViewController.m in Sources */,
-				B32ABDD719D87507002F3938 /* AppDelegate.m in Sources */,
+				B34F07391B79FF6B009D67F6 /* AppDelegate.swift in Sources */,
+				B34F07361B79FF51009D67F6 /* TraitOverrideController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,10 +225,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B355B63119D873DB00E540AD /* UIDynamicTabBarTests.m in Sources */,
-				B355B64119D873FE00E540AD /* UIDynamicTabViewController.m in Sources */,
-				B355B64519D873FE00E540AD /* UIDynamicTabBarItem.m in Sources */,
-				B355B64319D873FE00E540AD /* UIDynamicMoreViewController.m in Sources */,
-				B32ABDD819D87507002F3938 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,14 +239,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		B355B61E19D873DB00E540AD /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B355B61F19D873DB00E540AD /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		B355B62319D873DB00E540AD /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -367,9 +332,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = UIDynamicTabBar/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -377,6 +344,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = UIDynamicTabBar/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
